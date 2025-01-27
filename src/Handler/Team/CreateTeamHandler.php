@@ -30,6 +30,6 @@ class CreateTeamHandler implements HandlerInterface
 
         $this->repository->create($team);
 
-        return $team->toArray();
+        return $team->toDto();
     }
 }
