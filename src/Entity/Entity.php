@@ -8,6 +8,14 @@ use DateTimeImmutable;
 use Ramsey\Uuid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @method string getId()
+ * @method self setId(string $id)
+ * @method DateTimeImmutable getCreatedAt()
+ * @method self setCreatedAt(DateTimeImmutable $createdAt)
+ * @method DateTimeImmutable getUpdatedAt()
+ * @method self setUpdatedAt(DateTimeImmutable $updatedAt)
+ */
 abstract class Entity
 {
     #[ORM\Id]
@@ -18,8 +26,7 @@ abstract class Entity
     protected DateTimeImmutable $createdAt;
 
     #[ORM\Column(type: 'datetime_immutable')]
-    protected DateTimeImmutable $updatedAt;
-
+    protected DateTimeImmutable|null $updatedAt;
 
     public function __call(string $name, array $arguments)
     {
@@ -74,8 +81,7 @@ abstract class Entity
     {
         $this->id = Uuid::uuid4()->toString();
 
-        $now = new DateTimeImmutable('now');
-        $this->createdAt = $now;
-        $this->updatedAt = $now;
+        $this->createdAt = new DateTimeImmutable('now');;
+        $this->updatedAt = null;
     }
 }

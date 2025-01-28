@@ -9,8 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 
 /**
- * @method string getId()
- * @method self setId(string $id)
  * @method string getName()
  * @method self setName(string $name)
  * @method DateTimeImmutable getFounded()
@@ -21,11 +19,6 @@ use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
  * @method self setStadium(string $stadium)
  * @method string getBadge()
  * @method self setBadge(string $badge)
- * @method DateTimeImmutable getCreatedAt()
- * @method self setCreatedAt(DateTime $createdAt)
- * @method DateTimeImmutable getUpdatedAt()
- * @method self setUpdatedAt(DateTime $updatedAt)
- * /
  */
 #[ORM\Entity(repositoryClass: TeamRepository::class), HasLifecycleCallbacks]
 class Team extends Entity implements EntityInterface
@@ -33,7 +26,7 @@ class Team extends Entity implements EntityInterface
     #[ORM\Column(type: 'string', length: 255)]
     protected string $name;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'date_immutable')]
     protected DateTimeImmutable $founded;
 
     #[ORM\Column(type: 'string', length: 255)]

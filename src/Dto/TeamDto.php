@@ -11,13 +11,17 @@ class TeamDto implements DtoInterface
         return [
             'id' => $entity->getId(),
             'name' => $entity->getName(),
-            'founded' => $entity->getFounded(),
+            'founded' => $entity->getFounded()->format('Y-m-d'),
             'city' => $entity->getCity(),
             'stadium' => $entity->getStadium(),
             'badge' => $entity->getBadge(),
         ];
     }
 
+    /**
+     * @param array<EntityInterface> $items
+     * @return array
+     */
     public static function toDTOCollection(array $items): array
     {
         return array_map(function ($item) {

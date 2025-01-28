@@ -3,6 +3,7 @@
 namespace App\Controller\Team;
 
 use App\Handler\Team\CreateTeamHandler;
+use App\Utils\ApiResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,14 +21,9 @@ class CreateTeamController extends AbstractController
         try {
             $handler = $this->handler->handle($request->toArray());
 
-            return $this->json([
-                'message' => 'Team created successfully',
-                'data' => $handler,
-            ]);
+            return ApiResponse::class::success($handler);
         } catch (\Throwable $th) {
-            return $this->json([
-                'message' => $th->getMessage(),
-            ], 400);
+            return ApiResponse::class::error($th->getMessage());
         }
     }
 }

@@ -32,7 +32,7 @@ final class Version20250126171431 extends AbstractMigration
             ->setLength(100)
             ->setComment('Name of the team.');
 
-        $table->addColumn('founded', 'datetime_immutable')
+        $table->addColumn('founded', 'date_immutable')
             ->setComment('Date of foundation of the team.');
 
         $table->addColumn('stadium', 'string')
