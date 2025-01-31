@@ -40,4 +40,24 @@ class ApiResponse
             'errors' => $errors,
         ], $status, $headers);
     }
+
+    public static function notFound(string $message = 'Not found', array $errors = [], array $headers = []): JsonResponse
+    {
+        return self::error($message, Response::HTTP_NOT_FOUND, $errors, $headers);
+    }
+
+    public static function unauthorized(string $message = 'Unauthorized', array $errors = [], array $headers = []): JsonResponse
+    {
+        return self::error($message, Response::HTTP_UNAUTHORIZED, $errors, $headers);
+    }
+
+    public static function forbidden(string $message = 'Forbidden', array $errors = [], array $headers = []): JsonResponse
+    {
+        return self::error($message, Response::HTTP_FORBIDDEN, $errors, $headers);
+    }
+
+    public static function defaultError(string $message = 'An error occurred', array $errors = [], array $headers = []): JsonResponse
+    {
+        return self::error($message, Response::HTTP_INTERNAL_SERVER_ERROR, $errors, $headers);
+    }
 }

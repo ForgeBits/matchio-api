@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
+use Throwable;
 
 class CreateTeamController extends AbstractController
 {
@@ -22,7 +23,7 @@ class CreateTeamController extends AbstractController
             $handler = $this->handler->handle($request->toArray());
 
             return ApiResponse::class::success($handler);
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             return ApiResponse::class::error($th->getMessage());
         }
     }

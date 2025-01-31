@@ -25,7 +25,7 @@ abstract class Entity
     #[ORM\Column(type: 'datetime_immutable')]
     protected DateTimeImmutable $createdAt;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     protected DateTimeImmutable|null $updatedAt;
 
     public function __call(string $name, array $arguments)

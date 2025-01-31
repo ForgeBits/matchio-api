@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\TeamRepository;
-use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
