@@ -15,9 +15,11 @@ class ApiResponse
      * @param array $headers Cabeçalhos adicionais para a resposta.
      * @return JsonResponse
      */
-    public static function success(mixed $data = null, int $status = Response::HTTP_OK, array $headers = []): JsonResponse
+    public static function success(mixed $data = null, string $message = '', int $status = Response::HTTP_OK, array $headers = []): JsonResponse
     {
         return new JsonResponse([
+            'timestamp' => date('Y-m-d H:i:s'),
+            'message' => $message ?: 'Success',
             'success' => true,
             'data' => $data,
         ], $status, $headers);
@@ -35,8 +37,9 @@ class ApiResponse
     public static function error(string $message, int $status = Response::HTTP_BAD_REQUEST, array $errors = [], array $headers = []): JsonResponse
     {
         return new JsonResponse([
-            'success' => false,
+            'timestamp' => date('Y-m-d H:i:s'),
             'message' => $message,
+            'success' => false,
             'errors' => $errors,
         ], $status, $headers);
     }

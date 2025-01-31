@@ -22,7 +22,7 @@ class PaginatorDetails
     public function toArray(): array
     {
         return [
-            'data' => $this->data,
+            'items' => $this->data,
             'details' => [
                 'limit' => $this->limit,
                 'page' => $this->page,

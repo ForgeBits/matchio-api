@@ -22,10 +22,7 @@ class PaginateTeamController extends AbstractController
         try {
             $handler = $this->handler->handle($request->query->all());
 
-            return $this->json([
-                'message' => 'Teams retrieved successfully',
-                'data' => $handler,
-            ]);
+            return ApiResponse::success($handler, 'Teams retrieved successfully');
         } catch (\Throwable $th) {
             return ApiResponse::defaultError($th->getMessage());
         }
