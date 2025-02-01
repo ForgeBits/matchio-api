@@ -2,7 +2,6 @@
 
 namespace App\Controller\Team;
 
-use App\Controller\Validators\Team\PaginateTeamValidator;
 use App\Handler\Team\PaginateTeamHandler;
 use App\Utils\ApiResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -18,6 +18,8 @@ use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
  * @method self setStadium(string $stadium)
  * @method string getBadge()
  * @method self setBadge(string $badge)
+ * @method string getCountry()
+ * @method self setCountry(string $country)
  */
 #[ORM\Entity(repositoryClass: TeamRepository::class), HasLifecycleCallbacks]
 class Team extends Entity implements EntityInterface
@@ -37,6 +39,9 @@ class Team extends Entity implements EntityInterface
     #[ORM\Column(type: 'string', length: 255)]
     protected string $badge;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    protected string $country;
+
     public function toArray(): array
     {
         return [
@@ -46,6 +51,7 @@ class Team extends Entity implements EntityInterface
             'city' => $this->city,
             'stadium' => $this->stadium,
             'badge' => $this->badge,
+            'country' => $this->country,
         ];
     }
 }

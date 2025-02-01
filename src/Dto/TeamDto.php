@@ -15,6 +15,7 @@ class TeamDto implements DtoInterface
             'city' => $entity->getCity(),
             'stadium' => $entity->getStadium(),
             'badge' => $entity->getBadge(),
+            'country' => $entity->getCountry(),
         ];
     }
 

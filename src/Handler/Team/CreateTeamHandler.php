@@ -26,7 +26,8 @@ class CreateTeamHandler implements HandlerInterface
             ->setFounded(new DateTimeImmutable($data['founded']))
             ->setStadium($data['stadium'])
             ->setCity($data['city'])
-            ->setBadge($data['badge']);
+            ->setBadge($data['badge'])
+            ->setCountry($data['country']);
 
         $this->repository->create($team);
 

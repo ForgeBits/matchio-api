@@ -4,7 +4,7 @@ namespace App\Controller\Validators;
 
 use App\Exception\RequestValidationException;
 use Symfony\Component\HttpFoundation\RequestStack;
-use \Rakit\Validation\Validator as RakitValidator;
+use Rakit\Validation\Validator as RakitValidator;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class Validator
